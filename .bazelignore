@@ -1,0 +1,7 @@
+build_tools/eslint/node_modules
+build_tools/typescript/tsconfig-override-test/node_modules
+node_modules
+internal_modules/ts-ip-util/node_modules
+services/hello_world_node/node_modules
+services/loading_app/node_modules
+services/zipline_manager_app/node_modules

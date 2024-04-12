@@ -1,0 +1,2 @@
+**/*.md
+services/zipline_manager_service/http_server/zipline_manager_service.json

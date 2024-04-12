@@ -1,0 +1,53 @@
+__pycache__
+venv
+
+.env*.local
+.DS_Store
+*.code-workspace
+.venv
+.pip-tools
+.kube
+
+# node stuff
+node_modules
+.pnpm-store/
+pnpm-debug.log
+tsconfig.tsbuildinfo
+package-lock.json
+
+# Pycharm IDE files
+*.idea/
+.ijwb/
+
+# vim temporary files
+*.swo
+*.swp
+
+# CDK
+cdk/*.swp
+cdk/package-lock.json
+cdk/__pycache__
+cdk/.pytest_cache
+cdk/.venv
+cdk/*.egg-info
+
+## CDK asset staging directory
+**/.cdk.staging
+**/cdk.out
+
+# Bazel stuff
+.bazel
+.docker_bash_history
+.docker_zsh_history
+bazel-*
+
+# devpostgres volumes
+.devpostgres
+
+
+# pytest-cov test coverage
+.coverage
+test_coverage_reports/
+
+# playwright
+playwright-report/

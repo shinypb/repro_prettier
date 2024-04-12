@@ -1,0 +1,36 @@
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("@aspect_rules_lint//format:defs.bzl", "multi_formatter_binary")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@npm//:prettier/package_json.bzl", prettier = "bin")
+
+npm_link_all_packages()
+
+js_library(
+    name = "prettierconfig",
+    srcs = ["prettier.config.cjs"],
+    deps = [
+        "//:node_modules/prettier-plugin-tailwindcss",
+    ],
+)
+
+copy_to_bin(
+    name = "prettierignore",
+    srcs = [".prettierignore"],
+)
+
+prettier.prettier_binary(
+    name = "prettier",
+    data = [
+        "//:prettierconfig",
+        "//:prettierignore",
+    ],
+    # Allow the binary to be run outside bazel
+    env = {"BAZEL_BINDIR": "."},
+)
+
+multi_formatter_binary(
+    name = "format",
+    # register languages:
+    javascript = ":prettier",
+)
